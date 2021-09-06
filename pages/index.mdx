@@ -18,7 +18,7 @@ If you have some external resources to init the code editor, you can give `js` a
 URL would like below.
 
 <a href={'#'}>
-  {(typeof window !== 'undefined' && window.location.href.split('?')[0]) + "js=https://somewhere/some.js&css=https://somewhere/some.css"}
+  {(typeof window !== 'undefined' && (window.location.origin + window.location.pathname)) + "editor/?js=https://somewhere/some.js&css=https://somewhere/some.css"}
 </a>
 
 Form below can help you generate the page

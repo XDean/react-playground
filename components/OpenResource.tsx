@@ -4,7 +4,7 @@ export const OpenResource = () => {
   const [js, setJS] = useState('')
   const [css, setCSS] = useState('')
   const onConfirm = () => {
-    window.open(`${window.location.href.split('?')[0]}editor?js=${js}&css=${css}`, '_blank')
+    window.open(`${window.location.origin}${window.location.pathname}editor/?js=${js}&css=${css}`, '_blank')
   }
   return (
     <div className={'space-y-1'}>
