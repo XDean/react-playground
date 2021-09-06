@@ -1,5 +1,5 @@
 import {LiveError, LivePreview, LiveProvider} from "react-live";
-import {Code} from "./type";
+import {Code} from "../../lib/type";
 
 type Props = {
   code: Code

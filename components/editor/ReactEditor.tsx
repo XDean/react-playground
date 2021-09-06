@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useState} from "react";
 import {CodeEditor} from "./CodeEditor";
-import {Code} from "./type";
+import {Code} from "../../lib/type";
 import clsx from "clsx";
 import {Ace} from "ace-builds";
 import {ReactPreview} from "./ReactPreview";
@@ -19,7 +19,7 @@ export const ReactEditor = (props: ReactEditorProps) => {
   useEffect(() => refs[type]?.resize(), [type, refs])
 
   return (
-    <div className={'grid grid-cols-2 w-screen h-screen'}>
+    <div className={'grid grid-cols-2 w-full h-full'}>
       <div className={'flex flex-col'}>
         <div className={'bg-black text-white text-lg flex flex-row items-center'}>
           <div

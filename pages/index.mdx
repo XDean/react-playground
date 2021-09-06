@@ -1,0 +1,34 @@
+import {ReactEditor} from "../components/editor/ReactEditor";
+import {CONSTANTS} from "../lib/constants";
+import {OpenResource} from "../components/OpenResource";
+
+# Online React Editor
+
+This is an online React editor. You can edit JSX and CSS inline and see the result immediately. See sample below.
+
+<div className={'h-[300px] border border-solid w-8/12'}>
+  <ReactEditor code={{js: CONSTANTS.HELLO_WORLD_JS}}/>
+</div>
+
+Click [HERE](./editor) to go to a pure editor.
+
+## Init with external Resource
+
+If you have some external resources to init the code editor, you can give `js` and `css` query in the url.
+URL would like below.
+
+<a href={'#'}>
+  {window.location.href.split('?')[0] + "js=https://somewhere/some.js&css=https://somewhere/some.css"}
+</a>
+
+Form below can help you generate the page
+
+<div className={'border border-solid mt-2 w-[500px] p-2'}>
+  <OpenResource/>
+</div>
+
+export default ({children}) => (
+  <div className={'p-2'}>
+    {children}
+  </div>
+)
