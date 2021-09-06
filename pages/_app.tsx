@@ -6,7 +6,7 @@ function MyApp({Component, pageProps}: AppProps) {
   return (
     <>
       <Head>
-        <title>XDean NextJS Template</title>
+        <title>React Editor</title>
       </Head>
       <Component {...pageProps}/>
     </>
