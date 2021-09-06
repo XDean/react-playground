@@ -11,6 +11,7 @@ module.exports = withPlugins([
     }
   )],
   {
-    pageExtensions: ['tsx', 'mdx']
+    pageExtensions: ['tsx', 'mdx'],
+    basePath: '/react-editor',
   }
 ])
