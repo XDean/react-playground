@@ -1,4 +1,7 @@
+export const CodeTypes = ['js', 'css'] as const
+
+export type CodeType = typeof CodeTypes[number]
+
 export type Code = {
-  js: string// js must provide App variable as react root element
-  css: string
+  [key in CodeType]: string
 }

@@ -14,8 +14,8 @@ export const ReactPreview = (props: Props) => {
       <style>
         {code.css}
       </style>
-      <LivePreview/>
-      <LiveError className={'text-red-500'}/>
+      <LivePreview className={'break-words whitespace-pre'}/>
+      <LiveError className={'text-red-500 break-words whitespace-pre'}/>
     </LiveProvider>
   )
 }

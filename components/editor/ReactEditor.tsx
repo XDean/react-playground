@@ -44,7 +44,7 @@ export const ReactEditor = (props: ReactEditorProps) => {
           </div>
         ))}
       </div>
-      <div>
+      <div className={'p-2'}>
         <ReactPreview code={code}/>
       </div>
     </div>
