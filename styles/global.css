@@ -4,3 +4,17 @@
 body {
     @apply m-0;
 }
+
+@layer components {
+    .link-btn {
+        @apply cursor-pointer;
+    }
+
+    .link-btn:hover {
+        @apply underline text-gray-300;
+    }
+
+    .link-btn.active {
+        @apply underline;
+    }
+}

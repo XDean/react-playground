@@ -50,6 +50,7 @@ export const CodeEditor = (props: Props) => {
         enableLiveAutocompletion: true,
         enableSnippets: false,
         showLineNumbers: true,
+        showPrintMargin: false,
         tabSize: 2,
         wrap: true,
       }}/>

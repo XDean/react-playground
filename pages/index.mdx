@@ -21,6 +21,12 @@ URL would like below.
   {(typeof window !== 'undefined' && (window.location.origin + window.location.pathname)) + "editor/?js=https://somewhere/some.js&css=https://somewhere/some.css"}
 </a>
 
+Also, you can use local file
+
+<a href={'#'}>
+  {(typeof window !== 'undefined' && (window.location.origin + window.location.pathname)) + "editor/?js=/gpfs/somewhere/some.js&css=/gpfs/somewhere/some.css"}
+</a>
+
 Form below can help you generate the page
 
 <div className={'border border-solid mt-2 w-[500px] p-2'}>
