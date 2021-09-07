@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useState} from "react";
 import {CodeEditor} from "./CodeEditor";
-import {Code} from "../../lib/type";
+import {Code} from "../../lib/domain";
 import clsx from "clsx";
 import {Ace} from "ace-builds";
 import {ReactPreview} from "./ReactPreview";

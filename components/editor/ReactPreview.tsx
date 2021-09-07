@@ -1,5 +1,5 @@
 import {LiveError, LivePreview, LiveProvider} from "react-live";
-import {Code} from "../../lib/type";
+import {Code} from "../../lib/domain";
 import {IFrame} from "../util/IFrame";
 
 type Props = {

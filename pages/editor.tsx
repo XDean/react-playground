@@ -1,6 +1,6 @@
 import {ReactEditor} from "../components/editor/ReactEditor";
 import {GetServerSideProps} from 'next'
-import {Code, CodeTypes} from "../lib/type";
+import {Code, CodeTypes} from "../lib/domain";
 import {CONSTANTS} from "../lib/constants";
 
 type Props = {
