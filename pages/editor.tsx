@@ -2,6 +2,7 @@ import {ReactEditor} from "../components/editor/ReactEditor";
 import {GetServerSideProps} from 'next'
 import {Code, CodeTypes} from "../lib/domain";
 import {CONSTANTS} from "../lib/constants";
+import {fetchResource} from "../lib/service";
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
@@ -28,9 +29,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ctx => {
   for (const key of CodeTypes) {
     const path = ctx.query[key]
     if (!!path && typeof path === 'string') {
-      code[key] = await fetch(path)
-        .then(e => e.ok ? e.text() : `Resource ${path} not correct, response ${e.status}`)
-        .catch(e => `Fail to fetch ${path}: ${e.toString()}`)
+      code[key] = await fetchResource(path)
     }
   }
   return {
