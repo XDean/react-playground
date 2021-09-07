@@ -3,6 +3,8 @@ import {GetServerSideProps} from 'next'
 import {Code, CodeTypes} from "../lib/domain";
 import {CONSTANTS} from "../lib/constants";
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 type Props = {
   code: Code
 }
