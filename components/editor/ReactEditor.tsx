@@ -21,6 +21,9 @@ export const ReactEditor = (props: ReactEditorProps) => {
   useEffect(() => setCode(props.code), [props.code])
   useEffect(() => refs[type]?.resize(), [type, refs])
   useEffect(() => {
+    setTimeout(() => refs[type]?.resize(), 300);
+  }, [showPreview])
+  useEffect(() => {
     const p = router.query.preview
     if (!!p && typeof p === 'string') {
       setShowPreview(p.toLowerCase() !== 'false')
@@ -29,7 +32,7 @@ export const ReactEditor = (props: ReactEditorProps) => {
 
   return (
     <div className={'w-full h-full flex flex-row'}>
-      <div className={'flex flex-col w-0 flex-grow'}>
+      <div className={clsx('flex flex-col transition-all duration-300', showPreview ? 'w-6/12' : 'w-full')}>
         <div className={'bg-black text-white text-lg flex flex-row items-center space-x-2 px-2'}>
           <div className={clsx('link-btn', type === 'js' && 'active')}
                onClick={() => setType('js')}>
@@ -55,7 +58,7 @@ export const ReactEditor = (props: ReactEditorProps) => {
           </div>
         ))}
       </div>
-      <div className={clsx('p-2 w-0 flex-grow', showPreview ? 'block' : 'hidden')}>
+      <div className={clsx('transition-all duration-300', showPreview ? 'p-2 w-6/12' : 'p-0 w-0')}>
         <ReactPreview code={code}/>
       </div>
     </div>
