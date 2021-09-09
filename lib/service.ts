@@ -5,8 +5,8 @@ import {decompressFromEncodedURIComponent} from 'lz-string'
 
 export async function fetchResource(url: string): Promise<string> {
   if (url.startsWith('cmp:')) {
-    return decompressFromEncodedURIComponent(url.substr(3)) ||
-      decompressFromEncodedURIComponent(decodeURIComponent(url.substr(3))) || ''
+    return decompressFromEncodedURIComponent(url.substr(4)) ||
+      decompressFromEncodedURIComponent(decodeURIComponent(url.substr(4))) || ''
   } else if (isValidHttpUrl(url)) {
     try {
       const controller = new AbortController()
