@@ -7,14 +7,14 @@ body {
 
 @layer components {
     .link-btn {
-        @apply cursor-pointer;
-    }
-
-    .link-btn:hover {
-        @apply underline text-gray-300;
+        @apply cursor-pointer hover:underline hover:text-gray-300;
     }
 
     .link-btn.active {
         @apply underline;
+    }
+
+    .icon-btn {
+        @apply text-2xl cursor-pointer hover:text-gray-300 hover:shadow;
     }
 }

@@ -1,9 +1,13 @@
 import {isValidHttpUrl} from "./util";
 import * as path from 'path'
 import {promises as fs} from 'fs'
+import {decompressFromEncodedURIComponent} from 'lz-string'
 
 export async function fetchResource(url: string): Promise<string> {
-  if (isValidHttpUrl(url)) {
+  if (url.startsWith('cmp:')) {
+    return decompressFromEncodedURIComponent(url.substr(3)) ||
+      decompressFromEncodedURIComponent(decodeURIComponent(url.substr(3))) || ''
+  } else if (isValidHttpUrl(url)) {
     try {
       const controller = new AbortController()
       const timeoutId = setTimeout(() => controller.abort(), 5000)

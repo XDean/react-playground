@@ -5,6 +5,9 @@ import clsx from "clsx";
 import {Ace} from "ace-builds";
 import {ReactPreview} from "./ReactPreview";
 import {useRouter} from "next/router";
+import {BiArrowToLeft, BiArrowToRight, BiShareAlt} from 'react-icons/bi'
+import copy from 'copy-to-clipboard';
+import {compressToEncodedURIComponent} from 'lz-string'
 
 export type ReactEditorProps = {
   code: Code
@@ -30,6 +33,14 @@ export const ReactEditor = (props: ReactEditorProps) => {
     }
   }, [router])
 
+  const onShare = () => {
+    const js = compressToEncodedURIComponent(code.js)
+    const css = compressToEncodedURIComponent(code.css)
+    const url = `${window.location.origin}${window.location.pathname}?js=cmp:${js}&css=cmp:${css}`
+    copy(url)
+    alert('Share URL copied')
+  }
+
   return (
     <div className={'w-full h-full flex flex-row'}>
       <div className={clsx('flex flex-col transition-all duration-300', showPreview ? 'w-6/12' : 'w-full')}>
@@ -43,10 +54,17 @@ export const ReactEditor = (props: ReactEditorProps) => {
             CSS
           </div>
           <div className={'flex-grow'}/>
-          <div className={'link-btn'}
-               onClick={() => setShowPreview(s => !s)}>
-            {showPreview ? 'Hide' : 'Show'} Preview
-          </div>
+          <BiShareAlt className={'icon-btn !text-xl'}
+                      title={'Share'}
+                      onClick={onShare}
+          />
+          {showPreview ?
+            <BiArrowToRight className={'icon-btn'}
+                            title={'Hide Preview'}
+                            onClick={() => setShowPreview(false)}/> :
+            <BiArrowToLeft className={'icon-btn'}
+                           title={'Show Preview'}
+                           onClick={() => setShowPreview(true)}/>}
         </div>
         {['js', 'css'].map(t => (
           <div className={clsx('relative flex-grow', t === type ? 'block' : 'hidden')} key={t}>
